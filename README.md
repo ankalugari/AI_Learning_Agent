@@ -1,4 +1,4 @@
-# Marginalia — an AI learning agent
+# AI Agent — an AI learning agent
 
 A full-stack RAG agent: ask about AI concepts and get answers grounded in a searchable knowledge base, with the retrieved passages highlighted and every agent step visible. Numbers go to a calculator tool.
 
