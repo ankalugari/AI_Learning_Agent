@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-paper: #edf0f5;
+  --color-card: #ffffff;
+  --color-ink: #141c2b;
+  --color-soft: #58637b;
+  --color-line: #d9dee8;
+  --color-cobalt: #2b44e6;
+  --color-cobalt-dark: #1f33b8;
+  --color-mark: #ffe066;
+  --color-leaf: #1f8a5b;
+  --color-rose: #b8322a;
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+:focus-visible { outline: 2px solid var(--color-cobalt); outline-offset: 2px; }
+
+/* The highlighter: the one recurring visual idea. Used on the passage the retriever matched. */
+.hl {
+  background: linear-gradient(transparent 10%, var(--color-mark) 10%, var(--color-mark) 90%, transparent 90%);
+  padding: 0 0.12em;
+  border-radius: 2px;
+  color: inherit;
+}
+
+/* Markdown inside answers */
+.prose-m { line-height: 1.65; }
+.prose-m p { margin: 0 0 0.75rem; }
+.prose-m > :last-child { margin-bottom: 0; }
+.prose-m ul { list-style: disc; padding-left: 1.25rem; margin: 0 0 0.75rem; }
+.prose-m ol { list-style: decimal; padding-left: 1.25rem; margin: 0 0 0.75rem; }
+.prose-m li { margin: 0.2rem 0; }
+.prose-m strong { font-weight: 600; }
+.prose-m em { color: var(--color-soft); }
+.prose-m code { font-family: var(--font-mono); font-size: 0.86em; background: #eef1f7; padding: 0.1em 0.35em; border-radius: 4px; }
+.prose-m pre { background: #eef1f7; padding: 0.75rem 1rem; border-radius: 8px; overflow-x: auto; margin: 0 0 0.75rem; }
+.prose-m pre code { background: none; padding: 0; }
+.prose-m h1, .prose-m h2, .prose-m h3 { font-family: var(--font-display); font-weight: 700; margin: 1rem 0 0.4rem; }
+
+@keyframes blink { 0%, 80%, 100% { opacity: 0.25; } 40% { opacity: 1; } }
+.dot { animation: blink 1.2s infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
